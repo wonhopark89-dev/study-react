@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Fragment } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 // function App() {
 //   return (
@@ -34,12 +34,16 @@ import "./App.css";
 // }
 
 function App() {
-  // jsx
-  const name = undefined;
-  // return name || "값이 undefined 입니다"; // prevent undefined
-  // return <div>{name}</div>; // prevent undefined
-  // return <div>{name || "이 문구가 보이면 값이 undefined 입니다."}</div>;
-  return <>{name || "이 문구가 보이면 값이 undefined 입니다."}</>;
+	// jsx
+	const name = undefined;
+	// return name || "값이 undefined 입니다"; // prevent undefined
+	// return <div>{name}</div>; // prevent undefined
+	// return <div>{name || "이 문구가 보이면 값이 undefined 입니다."}</div>;
+	return (
+		<div className={'react'}>
+			{name || '이 문구가 보이면 값이 undefined 입니다.'}
+		</div>
+	);
 }
 
 export default App;
