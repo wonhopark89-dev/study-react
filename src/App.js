@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -35,11 +35,11 @@ import "./App.css";
 
 function App() {
   // jsx
-  return (
-    <div>
-      Hello <b>react</b>
-    </div>
-  );
+  const name = undefined;
+  // return name || "값이 undefined 입니다"; // prevent undefined
+  // return <div>{name}</div>; // prevent undefined
+  // return <div>{name || "이 문구가 보이면 값이 undefined 입니다."}</div>;
+  return <>{name || "이 문구가 보이면 값이 undefined 입니다."}</>;
 }
 
 export default App;
