@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const MyComponent = (props) => {
+const MyComponent = ({ name, children, favoriteNumber }) => {
 	return (
 		<div>
-			프로퍼티 {props.name} <br />
-			children 값은 {props.children}
+			프로퍼티 {name} <br />
+			children 값은 {children} <br />
+			좋아하는 숫자 {favoriteNumber}
 		</div>
 	);
 };
@@ -13,4 +15,9 @@ export default MyComponent;
 
 MyComponent.defaultProps = {
 	name: '기본 이름',
+};
+
+MyComponent.propTypes = {
+	name: PropTypes.string,
+	favoriteNumber: PropTypes.number.isRequired,
 };

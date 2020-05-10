@@ -26,7 +26,7 @@ import MyComponent from './MyComponent';
 // }
 
 const App = () => {
-	return <MyComponent>리액트ㅋ</MyComponent>;
+	return <MyComponent name={'wonhopark'}>리액트ㅋ</MyComponent>;
 };
 
 export default App;
