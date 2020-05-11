@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import MyComponent from './MyComponent';
+import Say from './Say';
 
 // function App() {
 //   // orignal
@@ -26,7 +27,12 @@ import MyComponent from './MyComponent';
 // }
 
 const App = () => {
-	return <MyComponent name={'wonhopark'}>리액트ㅋ</MyComponent>;
+	return (
+		<>
+			<MyComponent name={'wonhopark'}>리액트ㅋ</MyComponent>
+			<Say />
+		</>
+	);
 };
 
 export default App;
