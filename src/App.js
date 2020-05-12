@@ -3,6 +3,7 @@ import './App.css';
 import MyComponent from './MyComponent';
 import Say from './Say';
 import EventPractice from './EventPractice';
+import ValidationSample from './ValidationSample';
 
 // function App() {
 //   // orignal
@@ -32,7 +33,8 @@ const App = () => {
 		<>
 			<MyComponent name={'wonhopark'}>리액트ㅋ</MyComponent>
 			<Say />
-			<EventPractice/>
+			<EventPractice />
+			<ValidationSample />
 		</>
 	);
 };
