@@ -6,6 +6,8 @@ import EventPractice from './EventPractice';
 import ValidationSample from './ValidationSample';
 import ScrollBox from './ScrollBox';
 import IterationSample from './iterationSample';
+import Counter from './Counter';
+import Info from './Info';
 
 // function App() {
 //   // orignal
@@ -46,11 +48,9 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<ScrollBox ref={(banana) => (this.scrollBox = banana)} />
-				<button onClick={() => this.scrollBox.scrollToBottom()}>
-					맨 밑으로
-				</button>
 				<IterationSample />
+				<Counter />
+				<Info />
 			</div>
 		);
 	}
