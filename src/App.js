@@ -5,6 +5,7 @@ import Say from './Say';
 import EventPractice from './EventPractice';
 import ValidationSample from './ValidationSample';
 import ScrollBox from './ScrollBox';
+import IterationSample from './iterationSample';
 
 // function App() {
 //   // orignal
@@ -49,6 +50,7 @@ class App extends Component {
 				<button onClick={() => this.scrollBox.scrollToBottom()}>
 					맨 밑으로
 				</button>
+				<IterationSample />
 			</div>
 		);
 	}
