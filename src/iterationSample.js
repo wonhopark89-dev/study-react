@@ -23,6 +23,12 @@ const IterationSample = () => {
 	const [inputText, setInputText] = useState('');
 	const [nextId, setNextId] = useState(5);
 
+	const onRemove = (id) => {
+		const nextNames = names.filter((tomato) => tomato.id !== id);
+		setNames(nextNames);
+		console.log(nextNames);
+	};
+
 	const onChange = (e) => setInputText(e.target.value);
 	const onClick = () => {
 		const nextNames = names.concat({
@@ -38,7 +44,9 @@ const IterationSample = () => {
 	// const nameList = names.map((tomato, index) => <li key={index}>{tomato}</li>);
 
 	const nameList = names.map((tomato) => (
-		<li key={tomato.id}>{tomato.text}</li>
+		<li key={tomato.id} onDoubleClick={() => onRemove(tomato.id)}>
+			{tomato.text}
+		</li>
 	));
 	return (
 		<>
