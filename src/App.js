@@ -8,6 +8,7 @@ import ScrollBox from './ScrollBox';
 import IterationSample from './iterationSample';
 import Counter from './Counter';
 import Info from './Info';
+import Average from "./Average";
 
 // function App() {
 //   // orignal
@@ -51,6 +52,7 @@ class App extends Component {
 				<IterationSample />
 				<Counter />
 				<Info />
+				<Average/>
 			</div>
 		);
 	}
