@@ -1,18 +1,11 @@
 import React, { useState, useEffect, useReducer } from 'react';
-
-function reducer(state, action) {
-	return {
-		...state,
-		[action.name]: action.value,
-	};
-}
+import useInputs from './useInputs'; // custom hook
 
 const Info = () => {
-	const [state, dispatch] = useReducer(reducer, {
+	const [state, onChange] = useInputs({
 		name: '',
 		nickname: '',
 	});
-
 	const { name, nickname } = state;
 
 	// const [name, setName] = useState('');
@@ -49,11 +42,6 @@ const Info = () => {
 	// const onChangeNickname = (e) => {
 	// 	setNickname(e.target.value);
 	// };
-
-	const onChange = (e) => {
-		console.log(e.target);
-		dispatch(e.target);
-	};
 
 	return (
 		<div>
