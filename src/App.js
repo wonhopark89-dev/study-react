@@ -8,7 +8,7 @@ import ScrollBox from './ScrollBox';
 import IterationSample from './iterationSample';
 import Counter from './Counter';
 import Info from './Info';
-import Average from "./Average";
+import Average from './Average';
 
 // function App() {
 //   // orignal
@@ -48,11 +48,12 @@ import Average from "./Average";
 class App extends Component {
 	render() {
 		return (
-			<div>
+			<div className="App">
+				<header>Learn React</header>
 				<IterationSample />
 				<Counter />
 				<Info />
-				<Average/>
+				<Average />
 			</div>
 		);
 	}
