@@ -9,6 +9,7 @@ import IterationSample from './iterationSample';
 import Counter from './Counter';
 import Info from './Info';
 import Average from './Average';
+import SassComponent from './SassComponent';
 
 // function App() {
 //   // orignal
@@ -49,6 +50,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<SassComponent />
 				<header>Learn React</header>
 				<IterationSample />
 				<Counter />
