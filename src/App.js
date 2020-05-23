@@ -11,7 +11,7 @@ import Info from './Info';
 import Average from './Average';
 import SassComponent from './SassComponent';
 import CSSModule from './CSSModule';
-
+import StyledComponent from './StyledComponent';
 // function App() {
 //   // orignal
 //   return React.createElement(
@@ -58,6 +58,7 @@ class App extends Component {
 				<Counter />
 				<Info />
 				<Average />
+				<StyledComponent />
 			</div>
 		);
 	}
