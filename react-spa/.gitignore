@@ -21,6 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-/react-practice/node_modules
-/react-practice/build
