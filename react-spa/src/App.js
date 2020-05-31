@@ -26,10 +26,17 @@ const App = () => {
 		[todos],
 	);
 
+	const onRemove = useCallback(
+		(id) => {
+			setTodos(todos.filter((tomato) => tomato.id !== id));
+		},
+		[todos],
+	);
+
 	return (
 		<TodoTemplate>
 			<TodoInsert onInsert={onInsert} />
-			<TodoList todos={todos} />
+			<TodoList todos={todos} onRemove={onRemove} />
 		</TodoTemplate>
 	);
 };
