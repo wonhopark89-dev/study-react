@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import About from './About';
 import Home from './Home';
 import Profiles from './Profiles';
+import HistorySample from './HistorySample';
 
 const App = () => {
 	return (
@@ -17,6 +18,9 @@ const App = () => {
 				<li>
 					<Link to="/profiles">정보</Link>
 				</li>
+				<li>
+					<Link to="/history">history 예제</Link>
+				</li>
 			</ul>
 			<hr />
 			{/* exact 옵션이 true 여야 경로 일치 문제가 발생하지 않음 */}
@@ -25,6 +29,7 @@ const App = () => {
 			{/* match.params.username  */}
 			{/* <Route path="/profile/:username" component={Profile} /> */}
 			<Route path="/profiles" component={Profiles} />
+			<Route path="/history" component={HistorySample} />
 		</div>
 	);
 };
