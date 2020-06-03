@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const categories = [
 	{ name: 'all', text: '전체보기' },
@@ -22,9 +23,9 @@ const CategoriesBlock = styled.div`
 	}
 `;
 
-const Category = styled.div`
-	font-size: 1.125rem;
-	cursor: pointer;
+const Category = styled(NavLink)`
+	font-size: 1.125rem; 
+	cursor: pointer; 
 	white-space: pre;
 	text-decoration: none;
 	color: inherit;
@@ -34,7 +35,7 @@ const Category = styled.div`
 		color: #495057;
 	}
 
-	${(props) =>
+	/* ${(props) =>
 		props.active &&
 		css`
 			font-weight: 600;
@@ -43,21 +44,31 @@ const Category = styled.div`
 			&:hover {
 				color: #3bc9db;
 			}
-		`}
+		`} */
+
+    &.active {   
+        font-weight: 600;
+		border-bottom: 2px solid #22b8cf;
+		color: #22b8cf;
+        &:hover {
+            color: #3bc9db;
+ 		}
+    }
 
 	& + & {
 		margin-left: 1rem;
-	}
+	}  
 `;
 
-const Categories = ({ onSelect, category }) => {
+const Categories = () => {
 	return (
 		<CategoriesBlock>
 			{categories.map((tomato) => (
 				<Category
 					key={tomato.name}
-					active={category === tomato.name}
-					onClick={() => onSelect(tomato.name)}
+					activeClassName="active"
+					exact={tomato.name === 'all'} // `/` 를 가리키고 있을때 오류를 막기위해 exact 옵션
+					to={tomato.name === 'all' ? '/' : `/${tomato.name}`}
 				>
 					{tomato.text}
 				</Category>
