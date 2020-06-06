@@ -1,16 +1,16 @@
 import React from 'react';
 import ColorBox from './components/ColorBox';
-import ColorContext from './contexts/color';
+import { ColorProvider } from './contexts/color';
 
 // Priovider 를 통해 기본값을 value 를 꼭 명시해줘야한다.
 const App = () => {
 	return (
 		<div>
-			<ColorContext.Provider value={{ color: 'red' }}>
+			<ColorProvider>
 				<div>
 					<ColorBox />
 				</div>
-			</ColorContext.Provider>
+			</ColorProvider>
 		</div>
 	);
 };
