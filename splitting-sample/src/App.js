@@ -2,8 +2,13 @@ import React, { Component, Suspense, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import notify from './notify';
+import loadable from '@loadable/component';
 
-const SplitMe = React.lazy(() => import('./SplitMe'));
+// const SplitMe = React.lazy(() => import('./SplitMe'));
+// React.lazy change to 3rd party lib as "@loadable/component"
+const SplitMe = loadable(() => import('./SplitMe'), {
+	fallback: <div>loading...</div>,
+});
 
 function App() {
 	const [visible, setVisible] = useState(false);
@@ -14,14 +19,19 @@ function App() {
 		setVisible(true);
 	};
 
+	const onMouseOver = () => {
+		// 마우스 올려놓았을때, preload();
+		SplitMe.preload();
+	};
+
 	return (
 		<div className="App">
 			<header className="App-header">
 				<img src={logo} className="App-logo" alt="logo" />
-				<p onClick={onClick}>Hello React</p>
-				<Suspense fallback={<div>loading...</div>}>
-					{visible && <SplitMe />}
-				</Suspense>
+				<p onClick={onClick} onMouseOver={onMouseOver}>
+					Hello React !
+				</p>
+				{visible && <SplitMe />}
 			</header>
 		</div>
 	);
