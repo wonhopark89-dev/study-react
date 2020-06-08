@@ -10,8 +10,7 @@ const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
-const publicUrl = paths.servedPath.slice(0, -1);
-const env = getClientEnvironment(publicUrl);
+const env = getClientEnvironment(paths.publicUrlOrPath.slice(0, -1));
 
 // 웹펙 기본 설정 ~
 module.exports = {
@@ -22,7 +21,7 @@ module.exports = {
 		path: paths.ssrBuild, // 빌드경로
 		filename: 'server.js', // 파일 이름
 		chunkFilename: 'js/[name].chunk.js', // 청크 파일 이름
-		publicPath: paths.servedPath, // 정적파일이 제공될 경로
+		publicPath: paths.publicUrlOrPath, // 정적파일이 제공될 경로
 	},
 	module: {
 		rules: [
