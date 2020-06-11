@@ -10,7 +10,6 @@ export default PreloadContext;
 // Preloader 컴포넌트는 resolve 라는 함수는 props 로 받아오고,
 // 컴포넌트가 렌더링 될 때 서버환경에서만 resolve 함수를 호출함
 export const Preloader = ({ resolve }) => {
-    
 	const preloadContext = useContext(PreloadContext);
 	if (!preloadContext) return null; // context 값이 유효하지 않다면 아무것도 하지 않음
 	if (preloadContext.done) return null; // 이미 작업이 끝났다면 아무것도 하지 않음
@@ -20,4 +19,12 @@ export const Preloader = ({ resolve }) => {
 	// Promise.resolve 함수 사용
 	preloadContext.promises.push(Promise.resolve(resolve()));
 	return null;
+};
+
+// Hook 형태
+export const usePreloader = (resolve) => {
+	const preloadContext = useContext(PreloadContext);
+	if (!preloadContext) return null;
+	if (preloadContext.done) return null;
+	preloadContext.promises.push(Promise.resolve(resolve()));
 };
