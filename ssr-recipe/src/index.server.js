@@ -108,10 +108,10 @@ const serverRender = async (req, res, next) => {
 
 	// 미리 불러와야 하는 스타일/스크립트를 추출하고
 	const tags = {
-		scripts = stateScript + extractor.getScriptTags(), // 스크립트 앞부분에 리덕스 상태 넣기
+		scripts: stateScript + extractor.getScriptTags(), // 스크립트 앞부분에 리덕스 상태 넣기
 		links: extractor.getLinkTags(),
-		styles: extractor.getStyleTags()
-	}
+		styles: extractor.getStyleTags(),
+	};
 	res.send(createPage(root, tags)); // 클라이언트한테 결과물을 응답합니다.
 };
 
