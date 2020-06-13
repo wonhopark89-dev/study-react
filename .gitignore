@@ -24,3 +24,6 @@ yarn-error.log*
 
 /react-practice/node_modules
 /react-practice/build
+
+/blog/blog-backend/node_modules
+/blog/blog-backend/build
