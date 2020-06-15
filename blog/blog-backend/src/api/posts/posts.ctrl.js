@@ -23,7 +23,7 @@ exports.write = (ctx) => {
 	ctx.body = post;
 };
 
-/**
+/** 
  * 포스트 목록 조회
  * GET /api/posts
  */

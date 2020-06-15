@@ -1,8 +1,5 @@
-const Router = require('koa-router');
-const posts = require('./posts');
+// 이 파일에서만 no-global-assign ESLint 옵션을 비활성화
+// eslint-disable no-global-assign
 
-const api = new Router();
-
-api.use('/posts', posts.routes());
-// 라우터를 내보냅니다.
-module.exports = api;
+require = require('esm')(module /*, options*/);
+module.exports = require('./main.js');
