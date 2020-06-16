@@ -69,6 +69,9 @@ export const list = async (ctx) => {
 			.limit(10)
 			.skip((page - 1) * 10) // 10개를 skip 하는 뜻
 			.exec(); // 내림차순, 최대 10개
+
+		const postCount = await Post.countDocuments().exec();
+		ctx.set('Last-Page', Math.ceil(postCount / 10));
 		ctx.body = posts;
 	} catch (err) {
 		ctx.throw(500, err);
