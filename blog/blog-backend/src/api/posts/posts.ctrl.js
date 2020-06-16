@@ -55,8 +55,20 @@ export const write = async (ctx) => {
 	GET /api/posts
 */
 export const list = async (ctx) => {
+	// 페이지 네이션
+	// query 는 문자열 이기 때문에 숫자로 변환해 주어야 함
+	// 값이 없으면 기본값은 1
+	const page = parseInt(ctx.query.page || `1`, 10);
+	if (page < 1) {
+		ctx.status = 400;
+		return;
+	}
 	try {
-		const posts = await Post.find().exec();
+		const posts = await Post.find()
+			.sort({ _id: -1 })
+			.limit(10)
+			.skip((page - 1) * 10) // 10개를 skip 하는 뜻
+			.exec(); // 내림차순, 최대 10개
 		ctx.body = posts;
 	} catch (err) {
 		ctx.throw(500, err);
