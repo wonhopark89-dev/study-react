@@ -1,5 +1,17 @@
 import Post from '../../models/post';
+import mongoose from 'mongoose';
 
+const { ObjectId } = mongoose.Types;
+
+export const checkObjectId = (ctx, next) => {
+	// 클라이언트에서 잘못된 id 를 보냈는지 확인하는 코드
+	const { id } = ctx.params;
+	if (!ObjectId.isValid(id)) {
+		ctx.status = 400; // bad request
+		return;
+	}
+	return next();
+};
 /*
  POST /api/posts
  {
