@@ -68,11 +68,16 @@ export const list = async (ctx) => {
 			.sort({ _id: -1 })
 			.limit(10)
 			.skip((page - 1) * 10) // 10개를 skip 하는 뜻
+			.lean() // 처음부터 JSON 형태로 조회
 			.exec(); // 내림차순, 최대 10개
 
 		const postCount = await Post.countDocuments().exec();
 		ctx.set('Last-Page', Math.ceil(postCount / 10));
-		ctx.body = posts;
+		ctx.body = posts.map((post) => ({
+			...post,
+			body:
+				post.body.length < 200 ? post.body : `${post.body.slice(0, 200)}...`,
+		}));
 	} catch (err) {
 		ctx.throw(500, err);
 	}
