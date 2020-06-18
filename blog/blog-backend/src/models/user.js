@@ -22,5 +22,11 @@ UserSchema.statics.findByUsername = function (username) {
 	return this.findOne({ username }); // 스태틱 함수에서 this 는 모델을 가리킴, 여기서는  User
 };
 
+UserSchema.methods.serialize = function () {
+	const data = this.toJSON();
+	delete data.hashedPassword;
+	return data;
+};
+
 const User = mongoose.model('User', UserSchema);
 export default User;
